@@ -1,9 +1,9 @@
-#Toy Problems
+# Toy Problems
 
 Just a simple collection of answers to toy problems from Codewars and other similar sites.
 Current Codewars level: 5kyu, 312 points. (3/14)
 
-###Function Addition
+### Function Addition
 https://www.codewars.com/kata/functional-addition/train/javascript
 
 Create a function add(n)/Add(n) which returns a function that always adds n to any number
@@ -18,7 +18,7 @@ var addThree = add(3);
 addThree(3); // 6
 ```
 
-####Solution:
+#### Solution:
 
 ```javascript
 const add = n => y => n + y;
