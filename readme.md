@@ -4,7 +4,26 @@ Just a simple collection of answers to toy problems from Codewars and other simi
 
 Current Codewars level: 5kyu, 312 points. (3/14)
 
+### Isograms
+
+https://www.codewars.com/kata/isograms/train/javascript
+
+An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+```javascript
+isIsogram("Dermatoglyphics") == true;
+isIsogram("aba") == false;
+isIsogram("moOse") == false; // -- ignore letter case
+```
+
+#### Solution:
+
+```javascript
+const isIsogram = str => new Set(str.toLowerCase()).size === str.length;
+```
+
 ### Function Addition
+
 https://www.codewars.com/kata/functional-addition/train/javascript
 
 Create a function add(n)/Add(n) which returns a function that always adds n to any number
