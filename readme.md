@@ -1,6 +1,7 @@
 # Toy Problems
 
 Just a simple collection of answers to toy problems from Codewars and other similar sites.
+
 Current Codewars level: 5kyu, 312 points. (3/14)
 
 ### Function Addition
