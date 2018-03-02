@@ -4,6 +4,26 @@ Just a simple collection of answers to toy problems from Codewars and other simi
 
 Current Codewars level: 5kyu, 312 points. (3/14)
 
+### Decode the Morse code
+
+https://www.codewars.com/kata/decode-the-morse-code/train/javascript
+
+#### Solution:
+
+```javascript
+const decodeMorse = morseCode =>
+  morseCode
+    .trim()
+    .split("   ")
+    .map(word =>
+      word
+        .split(" ")
+        .map(letter => MORSE_CODE[letter])
+        .join("")
+    )
+    .join(" ");
+```
+
 ### Isograms
 
 https://www.codewars.com/kata/isograms/train/javascript
