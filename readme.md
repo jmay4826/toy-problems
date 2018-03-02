@@ -42,6 +42,40 @@ isIsogram("moOse") == false; // -- ignore letter case
 const isIsogram = str => new Set(str.toLowerCase()).size === str.length;
 ```
 
+### Two Joggers
+
+https://www.codewars.com/kata/two-joggers/train/javascript
+Your job is to complete the function nbrOfLaps(x, y) that, given the length of the laps for Bob and Charles, finds the number of laps that each jogger has to complete before they meet each other again, at the same time, at the start.
+
+The function takes two arguments:
+
+The length of Bob's lap (larger than 0)
+The length of Charles' lap (larger than 0)
+
+The function should return an array (Tuple<int, int> in C#) containing exactly two numbers:
+
+The first number is the number of laps that Bob has to run
+The second number is the number of laps that Charles has to run
+
+Examples:
+
+```javascript
+nbrOfLaps(5, 3); // returns [3, 5]
+nbrOfLaps(4, 6); // returns [3, 2]
+```
+
+#### Solution
+
+```javascript
+var nbrOfLaps = function(x, y) {
+  let z = Math.min(x, y);
+  while (z % x !== 0 || z % y !== 0) {
+    z = z + Math.min(x, y);
+  }
+  return [z / x, z / y];
+};
+```
+
 ### Function Addition
 
 https://www.codewars.com/kata/functional-addition/train/javascript
