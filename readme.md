@@ -42,6 +42,19 @@ isIsogram("moOse") == false; // -- ignore letter case
 const isIsogram = str => new Set(str.toLowerCase()).size === str.length;
 ```
 
+### Create Phone Number
+
+https://www.codewars.com/kata/525f50e3b73515a6db000b83
+
+#### Solution:
+
+```javascript
+const createPhoneNumber = n =>
+  `(${n.slice(0, 3).join("")}) ${n.slice(3, 6).join("")}-${n
+    .slice(6, 10)
+    .join("")}`;
+```
+
 ### Descending Order
 
 https://www.codewars.com/kata/descending-order/train/javascript
