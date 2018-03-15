@@ -198,6 +198,21 @@ var nbrOfLaps = function(x, y) {
 };
 ```
 
+### Shortest Word
+
+https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9
+
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types
+
+#### Solution:
+
+```javascript
+const findShort = s =>
+  s.split(" ").sort((a, b) => a.length - b.length)[0].length;
+```
+
 ### Find the divisors
 
 https://www.codewars.com/kata/find-the-divisors/train/javascript
