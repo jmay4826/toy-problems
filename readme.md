@@ -42,6 +42,24 @@ isIsogram("moOse") == false; // -- ignore letter case
 const isIsogram = str => new Set(str.toLowerCase()).size === str.length;
 ```
 
+### Descending Order
+
+https://www.codewars.com/kata/descending-order/train/javascript
+
+Description:
+Your task is to make a function that can take any non-negative integer as a argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+
+#### Solution
+
+```javascript
+const descendingOrder = n =>
+  +n
+    .toString()
+    .split("")
+    .sort((a, b) => +b - +a)
+    .join("");
+```
+
 ### Two Joggers
 
 https://www.codewars.com/kata/two-joggers/train/javascript
