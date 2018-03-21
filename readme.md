@@ -340,3 +340,31 @@ The code does not execute properly. Try to figure out why.
 ```javascript
 const multiply = (a, b) => a * b;
 ```
+
+### ES2015: Build an object which can't be modified
+
+https://www.codewars.com/kata/599a6aaf1924716c3000003f
+
+Declare an variable which name is stone that cant't be modified.
+
+The initial value of stone is under below.
+
+```javascript
+{
+  feature: 'earth',
+  style: {
+    color: 'black'
+  }
+}
+```
+
+#### Solution:
+
+```javascript
+const stone = Object.freeze({
+  feature: "earth",
+  style: Object.freeze({
+    color: "black"
+  })
+});
+```
