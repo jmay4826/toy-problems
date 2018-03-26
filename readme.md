@@ -2,7 +2,7 @@
 
 Just a simple collection of answers to toy problems from Codewars and other similar sites.
 
-Current Codewars level: 5kyu, 312 points. (3/14)
+Current Codewars level: 5kyu, 359 points. (3/27)
 
 ### Decode the Morse code
 
@@ -198,6 +198,47 @@ var nbrOfLaps = function(x, y) {
 };
 ```
 
+### Word a10n (abbreviation)
+
+https://www.codewars.com/kata/5375f921003bf62192000746
+
+The word i18n is a common abbreviation of internationalization in the developer community, used instead of typing the whole word and trying to spell it correctly. Similarly, a11y is an abbreviation of accessibility.
+
+Write a function that takes a string and turns any and all "words" (see below) within that string of length 4 or greater into an abbreviation, following these rules:
+
+A "word" is a sequence of alphabetical characters. By this definition, any other character like a space or hyphen (eg. "elephant-ride") will split up a series of letters into two words (eg. "elephant" and "ride").
+The abbreviated version of the word should have the first letter, then the number of removed characters, then the last letter (eg. "elephant ride" => "e6t r2e").
+
+Example
+
+```javascript
+abbreviate("elephant-rides are really fun!") ===
+  //          ^^^^^^^^*^^^^^*^^^*^^^^^^*^^^*
+  // words (^):   "elephant" "rides" "are" "really" "fun"
+  //                123456     123     1     1234     1
+  // ignore short words:               X              X
+
+  // abbreviate:    "e6t"     "r3s"  "are"  "r4y"   "fun"
+  // all non-word characters (*) remain in place
+  //                     "-"      " "    " "     " "     "!"
+  "e6t-r3s are r4y fun!";
+```
+
+#### Solution:
+
+```javascript
+const abbreviate = str =>
+  str
+    .split(/([^a-z])/i)
+    .map(
+      w =>
+        w.length >= 4
+          ? w.substr(0, 1) + (w.length - 2) + w.substr(w.length - 1)
+          : w
+    )
+    .join("");
+```
+
 ### Find the Parity Outlier
 
 https://www.codewars.com/kata/5526fc09a1bbd946250002dc
@@ -286,4 +327,180 @@ addThree(3); // 6
 
 ```javascript
 const add = n => y => n + y;
+```
+
+### Multiply
+
+https://www.codewars.com/kata/multiply/javascript
+
+The code does not execute properly. Try to figure out why.
+
+#### Solution:
+
+```javascript
+const multiply = (a, b) => a * b;
+```
+
+### ES2015: Build an object which can't be modified
+
+https://www.codewars.com/kata/599a6aaf1924716c3000003f
+
+Declare an variable which name is stone that cant't be modified.
+
+The initial value of stone is under below.
+
+```javascript
+{
+  feature: 'earth',
+  style: {
+    color: 'black'
+  }
+}
+```
+
+#### Solution:
+
+```javascript
+const stone = Object.freeze({
+  feature: "earth",
+  style: Object.freeze({
+    color: "black"
+  })
+});
+```
+
+### Build Tower
+
+https://www.codewars.com/kata/576757b1df89ecf5bd00073b
+
+Build Tower by the following given argument:
+number of floors (integer and always greater than 0).
+
+Tower block is represented as \*
+
+Python: return a list;
+JavaScript: returns an Array;
+C#: returns a string[];
+PHP: returns an array;
+C++: returns a vector<string>;
+Haskell: returns a [String];
+Ruby: returns an Array;
+Have fun!
+
+#### Solution:
+
+```javascript
+function towerBuilder(n) {
+  let tower = [];
+  for (var i = 0; i < n; i++) {
+    tower.push(
+      " ".repeat(Math.floor(n - i - 1)) +
+        "*".repeat(2 * i + 1) +
+        " ".repeat(Math.floor(n - i - 1))
+    );
+  }
+  return tower;
+}
+```
+
+### One Line Task: Count Down I
+
+Task
+Count down 3 times to an positive integer n, return these 3 numbers as a string, separated by exclamation mark(!).
+
+Code Limit
+Less than 30 characters.
+
+Example
+For n = 1, the output should be `"3!2!1".
+
+count down from 3 to 1
+
+For n = 10, the output should be `"12!11!10".
+
+count down from 12 to 10
+
+For n = 100, the output should be `"102!101!100".
+
+count down from 102 to 100
+
+#### Solution
+
+```javascript
+countDown = n => n + 2 + `!${n + 1}!` + n;
+```
+
+### Binary Addition
+
+https://www.codewars.com/kata/551f37452ff852b7bd000139
+Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+The binary number returned should be a string.
+
+#### Solution
+
+```javascript
+function addBinary(a, b) {
+  return (a + b).toString(2);
+}
+```
+
+### Disemvowel Trolls
+
+https://www.codewars.com/kata/52fba66badcd10859f00097e
+
+Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+Note: for this kata y isn't considered a vowel.
+
+#### Solution:
+
+```javascript
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, "");
+}
+```
+
+### Calculate Average
+
+https://www.codewars.com/kata/calculate-average/javascript
+Write function avg which calculates average of numbers in given list.
+
+#### Solution
+
+```javascript
+const find_average = arr => arr.reduce((acc, cur) => acc + cur) / arr.length;
+```
+
+### Unique in Order
+
+https://www.codewars.com/kata/unique-in-order/javascript
+
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+
+For example:
+
+```javascript
+uniqueInOrder("AAAABBBCCDAABBB") == ["A", "B", "C", "D", "A", "B"];
+uniqueInOrder("ABBCcAD") == ["A", "B", "C", "c", "A", "D"];
+uniqueInOrder([1, 2, 2, 3, 3]) == [1, 2, 3];
+```
+
+#### Solution:
+
+```javascript
+var uniqueInOrder = function(iterable) {
+  //your code here - remember iterable can be a string or an array
+  const arr = typeof iterable === "string" ? iterable.split("") : iterable;
+  return arr.reduce(
+    (acc, cur) => (cur === acc[acc.length - 1] ? [...acc] : [...acc, cur]),
+    []
+  );
+};
 ```
