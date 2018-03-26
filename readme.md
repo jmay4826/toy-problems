@@ -466,3 +466,14 @@ function disemvowel(str) {
   return str.replace(/[aeiou]/gi, "");
 }
 ```
+
+### Calculate Average
+
+https://www.codewars.com/kata/calculate-average/javascript
+Write function avg which calculates average of numbers in given list.
+
+#### Solution
+
+```javascript
+const find_average = arr => arr.reduce((acc, cur) => acc + cur) / arr.length;
+```
