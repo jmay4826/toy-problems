@@ -523,18 +523,59 @@ Return the total figure the individual will receive as a string prefixed with "Â
 const bonusTime = (salary, bonus) => `Â£${salary * (bonus ? 10 : 1)}`;
 ```
 
-
 ### Moving Zeros To The End
+
 https://www.codewars.com/kata/moving-zeros-to-the-end/javascript
 
 Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.
 
-```javascript 
-moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+```javascript
+moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]); // returns[false,1,1,2,1,3,"a",0,0]
 ```
 
 #### Solution
 
 ```javascript
-const moveZeros = (arr) => arr.filter(c => c !== 0).concat(arr.filter(c => c===0));
+const moveZeros = arr =>
+  arr.filter(c => c !== 0).concat(arr.filter(c => c === 0));
+```
+
+### Find the missing letter
+
+https://www.codewars.com/kata/5839edaa6754d6fec10000a2
+
+Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+
+You will always get an valid array. And it will be always exactly one letter be missing. The length of the array will always be at least 2.
+The array will always contain letters in only one case.
+
+Example:
+
+```javascript
+['a','b','c','d','f'] -> 'e'
+['O','Q','R','S'] -> 'P'
+```
+
+(Use the English alphabet with 26 letters!)
+
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have also created other katas. Take a look if you enjoyed this kata!
+
+#### Solution
+
+```javascript
+function findMissingLetter(array) {
+  // for (let i=0; i<array.length; i++){
+  //   if ((+array[i].charCodeAt(0) + 1) !== array[i+1].charCodeAt(0)){
+  //   return String.fromCharCode(+array[i].charCodeAt(0) + 1)
+  //   }
+  // }
+
+  return String.fromCharCode(
+    array
+      .map(c => +c.charCodeAt(0))
+      .filter((c, i, a) => c + 1 !== a[i + 1])[0] + 1
+  );
+}
 ```
